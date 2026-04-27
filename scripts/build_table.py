@@ -546,7 +546,7 @@ def build_table_html(
 
     toggle_html = """
 <label class="expand-toggle">
-  <input type="checkbox" id="expand-cols"> Show all columns (dose, treg defn, baseline/post values, durability, notes)
+  <input type="checkbox" id="expand-cols" checked> Show all columns (dose, treg defn, baseline/post values, durability, notes)
 </label>
 """.strip()
 
@@ -588,10 +588,12 @@ EXPAND_SCRIPT = """
 (function(){
   var cb = document.getElementById('expand-cols');
   if (!cb) return;
-  cb.addEventListener('change', function(){
+  function sync(){
     var t = document.querySelector('.pd-table');
     if (t) t.classList.toggle('show-all', cb.checked);
-  });
+  }
+  cb.addEventListener('change', sync);
+  sync();  // honor the checkbox's initial state on page load
 })();
 </script>
 """.strip()
@@ -752,7 +754,7 @@ def build_standalone_pd_html(
     <strong>Outcomes:</strong> {n_success} succeeded / {n_partial} partial /
     {n_failed} failed / {n_not_assessed} not-assessed (ratio-shift)</p>
   <p class="sb-meta-stats"><em>Self-contained download from
-    pirl-unc.github.io/io-shieldbreak — open in any modern browser.
+    benjamingvincent.github.io/io-shieldbreak — open in any modern browser.
     Filters and the "Show all columns" toggle work offline.</em></p>
 </header>
 <main>

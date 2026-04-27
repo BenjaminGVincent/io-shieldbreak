@@ -6,7 +6,7 @@
 
 <p class="pdf-download"><a href="tam-depletion-shieldbreak-report.pdf" download>📄 Download PDF report</a> <span class="pdf-meta">(131 KB — executive summary + ranked interventions + per-trial detail tables)</span></p>
 <p class="pdf-download"><a href="tam-depletion-critique.pdf" download>🔍 Download critique PDF</a> <span class="pdf-meta">(286 KB — per-paper appraisal + cross-paper synthesis)</span></p>
-<p class="pdf-download"><a href="tam-depletion-pharmacodynamic-results.html" download>📊 Download Pharmacodynamic results (HTML)</a> <span class="pdf-meta">(124 KB — sortable, filterable trial table; opens locally in any browser)</span></p>
+<p class="pdf-download"><a href="tam-depletion-pharmacodynamic-results.html" download>📊 Download Pharmacodynamic results (HTML)</a> <span class="pdf-meta">(125 KB — sortable, filterable trial table; opens locally in any browser)</span></p>
 
 ## Research question
 
@@ -303,7 +303,7 @@ See `prompts/shieldbreaks/tam-depletion/search.md` for the full search specifica
   <span class="filter-chip pill tis-other" data-tissue="other">other</span>
 </div>
 <label class="expand-toggle">
-  <input type="checkbox" id="expand-cols"> Show all columns (dose, treg defn, baseline/post values, durability, notes)
+  <input type="checkbox" id="expand-cols" checked> Show all columns (dose, treg defn, baseline/post values, durability, notes)
 </label>
 <table class="pd-table">
 <thead><tr><th>Intervention</th><th>Disease</th><th>N</th><th>Report</th><th>Tissue</th><th>Assay</th><th>Treg change</th><th>Result</th><th>Confidence</th><th>Bias & confounding</th><th>Source</th><th class="th-expanded">PMID</th><th class="th-expanded">Design</th><th class="th-expanded">Dose/schedule</th><th class="th-expanded">Treg defn</th><th class="th-expanded">Readout</th><th class="th-expanded">Timepoint</th><th class="th-expanded">Timing detail</th><th class="th-expanded">Baseline</th><th class="th-expanded">Post</th><th class="th-expanded">Magnitude</th><th class="th-expanded">Significance</th><th class="th-expanded">Durability</th><th class="th-expanded">Intent</th><th class="th-expanded">Data source</th><th class="th-expanded">Notes</th></tr></thead>
@@ -366,10 +366,12 @@ See `prompts/shieldbreaks/tam-depletion/search.md` for the full search specifica
 (function(){
   var cb = document.getElementById('expand-cols');
   if (!cb) return;
-  cb.addEventListener('change', function(){
+  function sync(){
     var t = document.querySelector('.pd-table');
     if (t) t.classList.toggle('show-all', cb.checked);
-  });
+  }
+  cb.addEventListener('change', sync);
+  sync();  // honor the checkbox's initial state on page load
 })();
 </script>
 
