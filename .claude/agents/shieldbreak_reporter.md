@@ -146,6 +146,16 @@ python3 scripts/build_table.py <slug>
 - The executive summary itself is terse. ~400–500 words target; never exceed 1 page when rendered.
 - When the prescriber's findings are negative (program-failed class, replicated counter-productive mechanism, missing endpoint), the executive summary must reflect that without softening. A reviewer reading 60 seconds of this PDF should leave with the right epistemic state, not a more flattering one.
 
+## Voice — humanizer pass
+
+Before persisting narrative prose, apply the humanizer skill at `~/.claude/skills/humanizer/SKILL.md`. Read it once at the start of the run and run its 29-pattern check plus the final "obviously AI generated" audit over each prose artifact before writing.
+
+Scope:
+- Applies to: every prose section of `data/shieldbreaks/<slug>/executive_summary.md`.
+- Does **not** apply to: the cover sheet, the ranking table, citations, or any inlined content owned by the prescriber (`scope_summary.md` is verbatim — humanize-pass that file when authoring it as the prescriber, not here).
+
+Humanizer rules layer on top of this agent's existing voice (no marketing language, no softening of negative findings, calibrated tone, required closing disclaimer kept verbatim). When they conflict, the agent-specific constraints win — in particular, the humanizer's "have opinions / add personality" guidance must not introduce editorial advocacy; the executive summary frames findings, it does not argue for them.
+
 ## On invocation, do this first
 
 1. Run **Step 0** to identify the shieldbreak and verify prerequisites.

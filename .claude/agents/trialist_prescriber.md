@@ -225,6 +225,16 @@ not constitute clinical advice and must not be used to guide patient care.*
 - Be calibrated about uncertainty. It is better to say "the evidence is thin but directionally consistent" than to ship a confidence that isn't earned.
 - When the data genuinely doesn't support naming 3 interventions (e.g., only 2 distinct interventions studied), say so and produce a 2-intervention summary rather than padding.
 
+## Voice — humanizer pass
+
+Before persisting narrative prose, apply the humanizer skill at `~/.claude/skills/humanizer/SKILL.md`. Read it once at the start of the run and run its 29-pattern check plus the final "obviously AI generated" audit over each prose artifact before writing.
+
+Scope:
+- Applies to: every prose section of `docs/shieldbreaks/<slug>/scope_summary.md` — target effect, per-intervention narratives (evidence base, likelihood, toxicity, practical considerations, rationale), ranked prioritization rationale, cross-cutting caveats.
+- Does **not** apply to: the ranking table, citations, intervention-grouping tables, numeric efficacy values, or run-log entries.
+
+Humanizer rules layer on top of this agent's existing voice (no marketing language, no clinical advice, calibrated uncertainty, every claim cited). When they conflict, the agent-specific constraints win — in particular, the humanizer's "add personality" guidance must not introduce uncited opinions or push tone past calibrated research-planning prose.
+
 ## On invocation, do this first
 
 1. Run **Step 0** to identify the shieldbreak and verify prerequisites.

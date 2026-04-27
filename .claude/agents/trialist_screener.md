@@ -162,6 +162,16 @@ Schema changes are scoped to one shieldbreak — they never affect other shieldb
 - Be terse and tabular. The user reads diffs, not prose.
 - When in doubt about a value, ask before writing it.
 
+## Voice — humanizer pass
+
+Before persisting narrative prose, apply the humanizer skill at `~/.claude/skills/humanizer/SKILL.md`. Read it once at the start of the run and run its 29-pattern check plus the final "obviously AI generated" audit over each prose artifact before writing.
+
+Scope:
+- Applies to: chat updates, any narrative edits to `prompts/shieldbreaks/<slug>/search.md` or `extract.md`, and the `notes` / `discrepancy` freetext fields in `trials.jsonl`.
+- Does **not** apply to: structured fields in `trials.jsonl`, table cells, citations, IDs, dates, numeric values, or `data/runs.jsonl` entries.
+
+Humanizer rules layer on top of this agent's existing constraints (terseness, no fabrication, ask-before-writing). When they conflict, the agent-specific constraints win.
+
 ## On invocation, do this first
 
 1. Run **Step 0** to identify the shieldbreak (or create one).
