@@ -1,8 +1,8 @@
 site_name: io-shieldbreak
 site_description: Curated clinical-trial tables and critical reviews of manuscripts on strategies to overcome resistance to cancer immunotherapies
-site_url: https://pirl-unc.github.io/io-shieldbreak/
-repo_url: https://github.com/pirl-unc/io-shieldbreak
-repo_name: pirl-unc/io-shieldbreak
+site_url: https://benjamingvincent.github.io/io-shieldbreak/
+repo_url: https://github.com/BenjaminGVincent/io-shieldbreak
+repo_name: BenjaminGVincent/io-shieldbreak
 edit_uri: edit/main/docs/
 
 theme:

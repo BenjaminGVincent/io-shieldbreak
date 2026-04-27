@@ -4,7 +4,7 @@
 
 The site is organized by **shieldbreak** — each shieldbreak is one research question with its own search parameters, extraction schema, sortable trial table, and manuscript critique. Two Claude Code subagents split the work: `trialist_screener` elicits parameters interactively, queries the medical literature (NCBI-first), screens hits, extracts structured data, and publishes the resulting table; `trialist_skeptic` then reads the ingested manuscripts in full, verifies extracted values against the source, and publishes a per-paper and cross-paper methodological critique.
 
-**Site:** https://pirl-unc.github.io/io-shieldbreak/
+**Site:** https://benjamingvincent.github.io/io-shieldbreak/
 
 ## Architecture
 
